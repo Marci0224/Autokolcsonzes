@@ -3,86 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Autókölcsönzés</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <script src="szamitKoltseg.js"></script>
     <script src="autoKolcsonzes.js"></script>
 </head>
-<body>
-    <div class="content min-h-[100vh] max-w-[1200px] mx-auto dark:text-white">
-        <header class="py-5">
-            <h1 class="text-3xl font-bold underline text-center">
-              Instant autókölcsönző költséggenerátor
-            </h1>
-          </header>
-          <main>
-            <form class="flex h-max w-72 flex-col items-center rounded-[10px] bg-white px-5 py-8">
-                <div class="mb-5">
-                    <label for="default" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Autó típusa</label>
-                    <select id="default" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<body class="bg-opacity-50">
+    <div class="content min-h-[100vh] max-w-[1200px] mx-auto dark:text-white opacity-100 flex items-center justify-center">
+        <div class="bg-white opacity-85 flex items-center justify-center rounded-[20px] max-w-[100%] mx-1">
+            <form class=" mx-auto h-[500px] w-auto flex items-center justify-center flex-col p-[20px]">
+                <h1 class="text-xl font-bold text-center text-red-700 mb-5">
+                    Instant autókölcsönző költségkalkulátor
+                </h1>
+                <label for="tipus" class="block mb-2 text-m font-medium text-gray-900 dark:text-white"><p>Válassza ki az autó típusát!</p></label>
+                <select id="tipus" class="bg-gray-50 border border-red-500 text-gray-900 mb-5 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" required>
+                    <option selected>Válassz egy autótípust</option>
                     <option value="gazdaságos">Gazdaságos</option>
                     <option value="családi">Családi</option>
                     <option value="luxus">Luxus</option>
-                </div>
-                <div class="flex flex-col items-center justify-center">
-                    <p>Autó biztosítás (1000 Ft/nap)</p>
-                    <div>
-                      <input name="biztositas" id="radio5-input1" type="radio" class="peer hidden" value="true"/>
-                      <label for="radio5-input1" class="relative mx-0 my-1 block w-40 cursor-pointer rounded-lg border-2 border-solid border-[#B9B9B9] px-12 py-2.5 text-sm delay-0 duration-500 ease-in-out before:invisible before:absolute before:left-[19px] before:top-2 before:h-5 before:w-5 before:scale-[3] before:rounded-full before:bg-black before:opacity-0 before:delay-0 before:duration-500 before:ease-in-out before:content-[''] after:absolute after:left-[21px] after:top-3 after:h-4 after:w-4 after:rounded-full after:border-2 after:border-solid after:border-black after:content-[''] peer-checked:border-black peer-checked:before:visible peer-checked:before:scale-100 peer-checked:before:opacity-100">Igen</label>
-                    </div>
-                    <div>
-                      <input name="biztositas" id="radio5-input2" type="radio" class="peer hidden" checked value="false"/>
-                      <label for="radio5-input2" class="relative mx-0 my-1 block w-40 cursor-pointer rounded-lg border-2 border-solid border-[#B9B9B9] px-12 py-2.5 text-sm delay-0 duration-500 ease-in-out before:invisible before:absolute before:left-[19px] before:top-2 before:h-5 before:w-5 before:scale-[3] before:rounded-full before:bg-black before:opacity-0 before:delay-0 before:duration-500 before:ease-in-out before:content-[''] after:absolute after:left-[21px] after:top-3 after:h-4 after:w-4 after:rounded-full after:border-2 after:border-solid after:border-black after:content-[''] peer-checked:border-black peer-checked:before:visible peer-checked:before:scale-100 peer-checked:before:opacity-100">Nem</label>
-                    </div>
-                </div>
-                <div class="mb-5">
-                    <div class="flex items-center mb-4">
-                        <input type="radio" value="true" name="biztositas" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Igen</label>
-                    </div>
-                    <div class="flex items-center">
-                        <input checked type="radio" value="false" name="biztositas" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nem</label>
+                </select>
+                <div class="mb-5 mt-[10px]">
+                    <p>Kér biztosítást az autóra? (Napi 1000Ft.)</p>
+                    <div class="flex justify-center gap-[10px] pt-[5px]">
+                        <div>
+                            <input name="biztositas" id="radio5-input1" type="radio" class="peer hidden" value="true"/>
+                            <label for="radio5-input1" class="relative mx-0 my-1 block max-w-40 cursor-pointer rounded-lg border-2 border-solid border-[#B9B9B9] px-12 py-2.5 text-sm delay-0 duration-500 ease-in-out before:invisible before:absolute before:left-[19px] before:top-2 before:h-5 before:w-5 before:scale-[3] before:rounded-full before:bg-black before:opacity-0 before:delay-0 before:duration-500 before:ease-in-out before:content-[''] after:absolute after:left-[21px] after:top-3 after:h-4 after:w-4 after:rounded-full after:border-2 after:border-solid after:border-black after:content-[''] peer-checked:border-black peer-checked:before:visible peer-checked:before:scale-100 peer-checked:before:opacity-100">Igen</label>
+                        </div>
+                        <div>
+                            <input name="biztositas" id="radio5-input2" type="radio" class="peer hidden" checked value="false"/>
+                            <label for="radio5-input2" class="relative mx-0 my-1 block max-w-40 cursor-pointer rounded-lg border-2 border-solid border-[#B9B9B9] px-12 py-2.5 text-sm delay-0 duration-500 ease-in-out before:invisible before:absolute before:left-[19px] before:top-2 before:h-5 before:w-5 before:scale-[3] before:rounded-full before:bg-black before:opacity-0 before:delay-0 before:duration-500 before:ease-in-out before:content-[''] after:absolute after:left-[21px] after:top-3 after:h-4 after:w-4 after:rounded-full after:border-2 after:border-solid after:border-black after:content-[''] peer-checked:border-black peer-checked:before:visible peer-checked:before:scale-100 peer-checked:before:opacity-100">Nem</label>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-5">
-                    <div class="flex items-center h-5">
-                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kölcsönzési idő(napokban):</label>
-                        <input type="number" id="nap" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
-                    </div>
-                    <div class="flex items-center h-5">
-                        <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onclick="szamol()">Költség kiszámítása</button>
-                    </div>
+                
+                <div class="flex items-center h-5 mb-5 mt-[10px]">
+                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><p>Kölcsönzési idő(napokban):</p></label>
+                    <input type="number" id="nap" class="bg-gray-50 border border-red-700 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
                 </div>
+                
+                <input type="button" class="text-white bg-red-700 hover:bg-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mt-[10px] mb-5 text-center dark:bg-red-600 dark:hover:bg-white dark:focus:ring-red-800 gomb" onclick="szamol()" value="Költség kiszámítása" required></input>
+                <div class="eredmeny mt-[10px]"></div>
             </form>
-          </main>
+        </div>
+        
     </div>
-    
 
-
-    
-
-    
-    <!---<form>
-        <p>Válassza ki az autó típusát!</p>
-        <select name="" id="tipus">
-            <option value="gazdaságos">Gazdaságos</option>
-            <option value="családi">Családi</option>
-            <option value="luxus">Luxus</option>
-        </select>
-        <p>Kér biztosítást az autóra? (Napi 1000Ft.)</p>
-        <input type="radio" name="biztositas" value="true">
-        <label>Igen</label>
-        <input type="radio" name="biztositas" value="false" checked>
-        <label>Nem</label>
-        <p>Hány napra kéri az autót?</p>
-        <input type="number" name="" id="nap">
-        <input type="button" value="Számol" onclick="szamol()">
-    </form>
-    --->
-
-    <div class="eredmeny"></div>
     <script>
         function szamol(){
             let tipus=document.getElementById("tipus").value;
